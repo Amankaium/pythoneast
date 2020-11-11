@@ -23,3 +23,21 @@ def authorization(request):
 def signout(request):
     logout(request)
     return redirect(homepage)
+
+
+def registration(request):
+    if request.method == 'POST':
+        login = request.POST.get("login")
+        password_1 = request.POST.get("password1")
+        password_2 = request.POST.get("password2")
+        if User.objects.filter(username=login).exists():
+            return render(request, "core/registration.html")
+        elif password_1 != password_2:
+            return render(request, "core/registration.html")
+        else:
+            new_user = User()
+            new_user.username = login
+            new_user.set_password(password_1)
+            new_user.save()
+            return redirect(authorization)
+    return render(request, "core/registration.html")
