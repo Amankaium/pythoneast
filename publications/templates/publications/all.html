@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block page %}
+
+    {% for publication in publications %}
+        <div>{{ publication.name }}</div>
+    {% endfor %}
+
+{% endblock %}
