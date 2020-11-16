@@ -3,7 +3,7 @@
 {% block page %}
 
     {% for publication in publications %}
-        <div>{{ publication.name }}</div>
+        <h3><a href="{% url 'publication' publication.pk  %}">{{ publication.name }}</a></h3>
     {% endfor %}
 
 {% endblock %}
