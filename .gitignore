@@ -131,3 +131,6 @@ dmypy.json
 
 # project settings
 pythoneast/settings.py
+
+# media
+/media
