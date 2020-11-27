@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 from django.views.generic import DetailView, CreateView
 from .models import Publication
 from .forms import PublicationForm
@@ -44,4 +45,5 @@ def create_form(request):
 class PublicationCreateView(CreateView):
     model = Publication
     fields = ["name", "text", "image"]
-    success_url = "/publication/all/"
+    # success_url = "/publication/all/"
+    success_url = reverse_lazy("all-publications")
