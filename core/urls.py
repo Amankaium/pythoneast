@@ -5,5 +5,6 @@ urlpatterns = [
     path("", homepage, name="home"),
     path("signin/", authorization, name="login"),
     path("signout/", signout, name="logout"),
-    path("registration/", registration, name="registration")
+    path("registration/", registration, name="registration"),
+    path("users/", UsersListView.as_view(), name="users")
 ]

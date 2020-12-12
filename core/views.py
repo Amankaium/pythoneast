@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout
+from django.views.generic import ListView
 
 
 def homepage(request):
@@ -41,3 +42,8 @@ def registration(request):
             new_user.save()
             return redirect(authorization)
     return render(request, "core/registration.html")
+
+
+class UsersListView(ListView):
+    queryset = User.objects.filter(is_active=True)
+    template_name = 'core/users.html'
