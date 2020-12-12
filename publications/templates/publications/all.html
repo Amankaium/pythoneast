@@ -16,7 +16,7 @@
         <tbody>
             {% for publication in publications %}
                 <tr>
-                    <td>{{ publication.name }}</td>
+                    <td><a style="color: white" href="{% url 'publication' publication.pk %}">{{ publication.name }}</a></td>
                     <td>{{ publication.created_at|date:"d.m.Y H:i" }}</td>
                 </tr>
             {% endfor %}
