@@ -1,11 +1,9 @@
 {% extends 'base.html' %}
 
 {% block page %}
-
     <ul>
         {% for user in object_list %}
-            <li>{{ user }} <a href="{% url 'invite' user.id %}">+</a> </li>
+            <li>{{ user }}</li>
         {% endfor %}
     </ul>
-
 {% endblock %}

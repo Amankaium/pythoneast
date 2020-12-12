@@ -21,7 +21,7 @@ class BaseModel(models.Model):
     def __str__(self):
         if self.name:
             return self.name
-        return self.id
+        return str(self.id)
     
     class Meta:
         abstract = True
