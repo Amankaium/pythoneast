@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
 
 {% block page %}
 
     <form method="POST" enctype="multipart/form-data">
+        <h2>Добавить публикацию через django форму</h2>
         {% csrf_token %}
-        {{ form.as_p }}
-        <button>Создать</button>
+        {% bootstrap_form form %}
+        <button class="btn btn-warning btn-lg">Создать</button>
     </form>
 
 {% endblock %}
