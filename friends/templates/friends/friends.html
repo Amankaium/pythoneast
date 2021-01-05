@@ -3,7 +3,15 @@
 {% block page %}
     <ul>
         {% for user in object_list %}
-            <li>{{ user }}</li>
+            <br>
+            <li>
+                <form action="{% url 'delete-friend' %}" method="POST">
+                    {{ user }}
+                    {% csrf_token %}
+                    <input type="hidden" name="user" value="{{ user.id }}">
+                    <button class="btn btn-sm btn-danger">-</button>
+                </form>
+            </li>
         {% endfor %}
     </ul>
 {% endblock %}

@@ -15,11 +15,22 @@ class FriendsListView(ListView):
     template_name = 'friends/friends.html'
     
     def get_queryset(self):
-        users = User.objects.filter(
+        users = User.objects.filter( # TODO
             is_active=True,
             friend_2__user_1=self.request.user,
             friend_2__is_accepted=True
         )
         return users
 
-    
+
+def delete_friend(request):
+    form = request.POST
+    user_id = int(form.get("user"))
+    friend = User.objects.get(id=user_id)
+    source = request.user
+    invites = Invite.objects.filter( # TODO
+        user_1=source,
+        user_2=friend
+    )
+    invites.delete()
+    return redirect('friends')
