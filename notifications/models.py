@@ -16,7 +16,7 @@ class Notification(BaseModel):
     )
 
     def __str__(self):
-        return text[:10]
+        return self.text[:10]
 
 
 class InviteNotification(Notification):

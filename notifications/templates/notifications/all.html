@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block page %}
+    {% for notification in object_list %}
+        <h2>
+            {{ notification.text }}
+            <a href="{% url 'accept-invite' notification.id %}" class="btn btn-sm btn-success">Добавить</a>
+            <a href="{% url 'reject-invite' notification.id %}" class="btn btn-sm btn-danger">Отклонить</a>
+
+        </h2>
+    {% empty %}
+        <h2>На сегодня уведомлений нет</h2>
+    {% endfor %}
+{% endblock %}
