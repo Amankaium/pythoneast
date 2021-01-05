@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'core',
     'publications',
     'friends',
+    'notifications',
 ]
 
 MIDDLEWARE = [
